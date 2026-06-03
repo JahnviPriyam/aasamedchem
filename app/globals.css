@@ -3,6 +3,73 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg: #D8F3F1;
+  --sidebar: #8ED6D1;
+  --card: #FFFFFF;
+  --primary: #65C7C0;
+  --secondary: #F5D76E;
+  --text-theme: #2F4F4F;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Theme utility classes using Tailwind @apply where appropriate */
+.theme-bg {
+  background-color: var(--bg);
+}
+
+.sidebar-bg {
+  background-color: var(--sidebar);
+}
+
+.card-bg {
+  background-color: var(--card);
+}
+
+.text-theme {
+  color: var(--text-theme);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.accent-secondary {
+  background-color: var(--secondary);
+}
+
+/* small helpers */
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(47,79,79,0.06);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {

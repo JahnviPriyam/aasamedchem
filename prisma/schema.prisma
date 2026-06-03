@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  SELLER
+  BUYER
+}
+
+model User {
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  role     Role
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  name             String
+  description      String?
+  baseUnit         String
+  stockQuantity    Decimal
+  pricePerBaseUnit Decimal
+}
+
+model Order {
+  id                String @id @default(cuid())
+  buyerName         String
+  productName       String
+  enteredQuantity   Decimal
+  enteredUnit       String
+  convertedQuantity Decimal
+  totalPrice        Decimal
+  status            String
+}
+
+model ProductRequest {
+  id          String @id @default(cuid())
+  productName String
+  quantity    Decimal
+  unit        String
+  notes       String?
+  status      String
+}
+
+model Notification {
+  id       String @id @default(cuid())
+  message  String
+  isRead   Boolean @default(false)
+}
